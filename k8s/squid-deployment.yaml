@@ -23,7 +23,7 @@ spec:
         ports:
         - containerPort: 3128
         volumeMounts:
-          - mountPath: /etc/squid
+          - mountPath: /etc/squid-conf
             name: config
       volumes:
         - name: config
