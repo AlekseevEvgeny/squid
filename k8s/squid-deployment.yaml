@@ -14,7 +14,7 @@ spec:
         app: squid
     spec:
       containers:
-      - image: squid
+      - image: evgenyalekseev/squid:1.0
         name: squid
         ports:
         - containerPort: 3128
