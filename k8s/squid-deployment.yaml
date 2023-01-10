@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: squid
-        image: evgenyalekseev/squid:3.0
+        image: evgenyalekseev/squid:5.0
         lifecycle:
           preStop:
             exec:
@@ -23,9 +23,14 @@ spec:
         ports:
         - containerPort: 3128
         volumeMounts:
-          - mountPath: /etc/squid-conf
-            name: config
+          - mountPath: /etc/squid/conf.d
+            name: config-rules
+          - mountPath: /etc/squid/acl
+            name: config-acl
       volumes:
-        - name: config
+        - name: config-rules
           configMap:
-            name: squid
+            name: squid-rules
+        - name: config-acl
+          configMap:
+            name: squid-acl

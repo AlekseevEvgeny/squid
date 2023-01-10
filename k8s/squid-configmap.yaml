@@ -1,19 +1,17 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: squid
+  name: squid-rules
 data:
-  squid.conf: |-
-    acl neco_network src 10.64.0.0/12
-    # Only allow cachemgr access from localhost
-    http_access allow localhost manager
-    http_access deny manager
-    http_access allow neco_network
-    http_access deny all
-    http_port 3128
-    coredump_dir /var/cache/squid
-    maximum_object_size_in_memory 100 MB
-    detect_broken_pconn on
-    forwarded_for delete
-    httpd_suppress_version_string on
-    shutdown_lifetime 10 seconds
+  deny.conf: |-
+    acl deny_dst url_regex "/etc/squid/acl/dst_deny.acl"
+    http_access deny deny_dst
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: squid-acl
+data:
+  dts_deny.acl: |-
+    ^https:\/\/github.com\/saby-integration\/.*$
+    ^https:\/\/wiki.squid-cache.org\/SquidFaq\/.*$
