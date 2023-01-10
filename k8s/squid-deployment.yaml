@@ -18,3 +18,7 @@ spec:
         name: squid
         ports:
         - containerPort: 3128
+      volumes:
+        - name: config
+          configMap:
+            name: squid
