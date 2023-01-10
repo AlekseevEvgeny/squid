@@ -12,3 +12,4 @@ metadata:
   name: squid-acl
 data:
   dts_deny.acl: |-
+    ^https:\/\/github.com\/saby-integration\/.*$
