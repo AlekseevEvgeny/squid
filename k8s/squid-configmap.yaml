@@ -4,8 +4,7 @@ metadata:
   name: squid-rules
 data:
   deny.conf: |-
-    acl deny_dst url_regex "/etc/squid/acl/dst_deny.acl"
-    http_access deny deny_dst
+
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -13,5 +12,3 @@ metadata:
   name: squid-acl
 data:
   dts_deny.acl: |-
-    ^https:\/\/github.com\/saby-integration\/.*$
-    ^https:\/\/wiki.squid-cache.org\/SquidFaq\/.*$
