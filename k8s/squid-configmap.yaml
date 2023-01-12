@@ -6,6 +6,9 @@ data:
   deny.conf: |-
     acl deny_dst url_regex "/etc/squid-conf/acl/dst_deny.acl"
     http_access allow deny_dst
+  allow.conf: |-
+    acl allow_dst url_regex "/etc/squid-conf/acl/dst_allow.acl"
+    http_access allow allow_dst
 ---
 apiVersion: v1
 kind: ConfigMap
