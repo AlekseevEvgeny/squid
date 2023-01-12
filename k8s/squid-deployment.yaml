@@ -32,6 +32,11 @@ spec:
         image: alpine
         command: ["/bin/sh"]
         args: ["-c", "while true; do sleep 3600;echo 'test shared pipe'; done"]
+        volumeMounts:
+          - mountPath: /etc/squid-conf/conf.d
+            name: config-rules
+          - mountPath: /etc/squid-conf/acl
+            name: config-acl
       volumes:
         - name: config-rules
           configMap:
