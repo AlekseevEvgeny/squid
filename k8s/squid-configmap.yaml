@@ -21,3 +21,4 @@ data:
     columbia.edu
   dst_allow.acl: |
     yandex.ru
+    google.com
