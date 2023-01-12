@@ -15,7 +15,9 @@ kind: ConfigMap
 metadata:
   name: squid-acl
 data:
-  dst_deny.acl: |-
+  dst_deny.acl: |
     ^https:\/\/github.com\/saby-integration\/.*$
     info.cern.ch
     columbia.edu
+  dst_allow.acl: |
+    yandex.ru
