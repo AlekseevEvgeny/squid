@@ -29,7 +29,9 @@ spec:
           - mountPath: /etc/squid-conf/acl
             name: config-acl
       - name: sidecar
-        image: tamilhce/shared_process:v2
+        image: alpine
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do sleep 3600;echo 'test shared pipe'; done"]
       volumes:
         - name: config-rules
           configMap:
