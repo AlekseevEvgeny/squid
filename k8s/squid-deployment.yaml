@@ -13,6 +13,7 @@ spec:
       labels:
         app: squid
     spec:
+      shareProcessNamespace: true
       containers:
       - name: squid
         image: evgenyalekseev/squid:v1.0
@@ -27,6 +28,8 @@ spec:
             name: config-rules
           - mountPath: /etc/squid-conf/acl
             name: config-acl
+      - name: sidecar
+        image: tamilhce/shared_process:v2
       volumes:
         - name: config-rules
           configMap:
