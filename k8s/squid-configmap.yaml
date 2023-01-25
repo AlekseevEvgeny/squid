@@ -17,7 +17,6 @@ metadata:
 data:
   dst_deny.acl: |
     ^https:\/\/github.com\/saby-integration\/.*$
-    info.cern.ch
     columbia.edu
   dst_allow.acl: |
     yandex.ru
