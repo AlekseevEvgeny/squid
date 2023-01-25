@@ -21,7 +21,7 @@ data:
     10.76.1.1
     127.0.0.1
   dst_deny.acl: |
-    
+    cisco.com
   dst_allow.acl: |
     columbia.edu
     info.cern.ch
