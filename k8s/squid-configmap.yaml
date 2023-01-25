@@ -4,20 +4,22 @@ metadata:
   name: squid-rules
 data:
   deny.conf: |-
+    acl dc_srv src "/etc/squid-conf/acl/dc_srv.acl"
     acl deny_dst url_regex "/etc/squid-conf/acl/dst_deny.acl"
-    http_access allow deny_dst
+    http_access deny dc_srv deny_dst
   allow.conf: |-
+    acl dc_srv src "/etc/squid-conf/acl/dc_srv.acl"
     acl allow_dst url_regex "/etc/squid-conf/acl/dst_allow.acl"
-    http_access allow allow_dst
+    http_access allow dc_srv allow_dst
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: squid-acl
 data:
+  dc_srv.acl: |
+    10.76.1.1
   dst_deny.acl: |
-    ^https:\/\/github.com\/saby-integration\/.*$
-    columbia.edu
+    info.cern.ch
   dst_allow.acl: |
-    yandex.ru
-    google.com
+    columbia.edu
