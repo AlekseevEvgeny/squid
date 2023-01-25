@@ -16,7 +16,7 @@ spec:
       shareProcessNamespace: true
       containers:
       - name: squid
-        image: evgenyalekseev/squid:v1.0
+        image: evgenyalekseev/squid:v1.1
         lifecycle:
           preStop:
             exec:
